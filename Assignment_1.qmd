@@ -1,0 +1,109 @@
+---
+title: "IBM 6010 Assignment"
+format:
+  html:
+    theme: litera
+    font-family: sans-serif;
+    font-size: 110%;
+    other-links:
+      - text: Rogue Fitness
+        href: https://www.roguefitness.com/ 
+    #code-links:
+     #text: Data Import Code
+     #icon: file-code
+     #href: data-import.py
+    
+editor: visual
+toc: true
+toc-title: Contents
+toc-location: left
+#toc-expand: 2
+number-sections: true
+number-depth: 2
+smooth-scroll: true	
+tabsets: true #enable tabsets to present content
+embed-resources: true #create self-contained html
+anchor-sections: true #hover over a section title to see an anchor link
+citations-hover: true #Enable a hover popup that shows the reference information
+df-print: kable
+code-fold: true #collapse all code blocks
+code-tools: true #toggle code blocks on and off globally
+code-link: true	#link functions to their online documentation, downlit and xml2 package required
+code-overflow: wrap #long code scroll or wrap
+code-block-bg: true
+code-block-border-left: "#31BAE9"
+highlight-style: pygments
+execute:
+  warning: false
+  message: false
+comments:
+  hypothesis: true
+---
+
+```{r setup, include=FALSE}
+# Suppress package startup messages
+suppressPackageStartupMessages(library(tidyverse))
+
+#The downlit and xml2 packages are required for code linking 
+#install.packages("downlit")
+#install.packages("xml2")
+
+library(downlit)
+library(xml2)
+
+
+```
+
+# Introduction
+
+The digital marketing plan for [RogueFitness.com](roguefitness.com) aims to maximize ROAS and prioritize channels and marketing efforts that bring in the highest revenue. To increase ROAS from 8.8 to 10:
+
+-   The budget allocated to loyalty building remains the same at 29%.
+
+-   The budget for demand generation is reduced to 3%, down from 9%.
+
+-   The budget allocated to demand harvesting is increased to 68%, from 62%.
+
+    | Funnel Stage      | Budget | Revenue | Budget % | ROAS |
+    |-------------------|--------|---------|----------|------|
+    | Demand generation |        |         |          |      |
+    | Demand harvesting |        |         |          |      |
+    | Loyalty building  |        |         |          |      |
+    | TOTAL             |        |         |          |      |
+
+    : Monthly budget and revenue per funnel stage
+
+## SEO
+
+The cost of hiring a new SEO specialist is the biggest expenditure in scaling SEO. Based on the exceptional ROAS (22.6) we see in demand harvesting content, we will hire a second SEO specialist with 10.000 USD[^1].
+
+[^1]: seoconsulting.com
+
+### Budget Allocation
+
+::: panel-tabset
+## Demand Generation
+
+ROAS is positive yet on the lower end at 200%. It wouldn't make sense to hire a new SEO specialist specifically for this or further divide our existing specialist's time and energy for it. So even though we are getting a second specialist, the time and effort going into demand generation will remain the same. 
+
+## Demand Harvesting
+
+ROAS is the highest among demand harvesting efforts at 2260%. We can hire a second SEO specialist with 10000 USD who will focus solely on Demand Harvesting and produce and optimize more content, increase rankings and the number of keywords we are focusing on.
+:::
+
+### Keyword Analysis
+
+To identify SEO opportunities, we use Search Console. Currently, Rogue Fitness shows up on the second page of the SERP for 14 keywords.
+
+```{r}
+ranking <- readxl::read_xlsx("ranking.xlsx") #read file in the same working directory
+
+#install.packages("tidyverse")
+
+library(tidyverse)
+filtered_ranking <- ranking %>%
+  filter(Position > 10 & Position < 20 ) %>% #filter for the results in second page of SERP
+   arrange(desc(Impressions)) #sort by most searched
+  
+filtered_ranking
+```
