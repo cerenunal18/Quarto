@@ -1,0 +1,45 @@
+---
+title: "In-depth Interactive Report Authoring with Quarto"
+author: "Ceren Ünal"
+date: "02-18-2025"
+date-format: "M/DD/YYYY"
+format:
+  revealjs:
+    logo: "logos/ccidm-cpp logo.png"
+    theme: theme.scss
+    slide-number: true
+    toc: true
+    #chalkboard: true #cannot use with self-contained
+    self-contained: true
+    width: 1280
+    height: 720
+---
+
+# Introduction
+
+## Learning Outcomes
+
+-   **Understand HTML Formatting in Quarto** – Participants will learn how to structure and enhance HTML documents.
+
+-   **Apply Styling and Theming to HTML Outputs** – Participants will gain knowledge of CSS styles, theme options, and custom themes.
+
+::: notes
+Speaker notes: Use this slide to introduce yourself and the goals of the talk.
+:::
+
+## Learning Outcomes
+
+-   **Enhance HTML Documents with Interactive and Navigational Features** – Participants will implement features such as smooth scrolling, tabsets, external links to improve user experience.
+
+-   **Customize Code Blocks in HTML** – Participants will explore various options for displaying and formatting code, including hiding/folding code, adding annotations.
+
+## Agenda
+
+::: incremental
+-   Get acquainted with the Visual Editor
+-   Modify draft using Visual Editor tools
+-   Modify YAML to customize HTML document
+-   Modify YAML to customize code chunks
+-   Add interactive features
+-   Add code chunks
+:::
